@@ -1,0 +1,83 @@
+
+:root{
+  --ink:#090b0d; --paper:#f3f0ff; --purple:#7b2bd0; --violet:#9b5cff;
+  --acid:#c9ff5a; --white:#fff; --line:#111; --soft:#ddd7f5;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink)}
+a{color:inherit;text-decoration:none}.wrap{margin:auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+nav{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:10}
+.brand img{height:34px;filter:invert(1)} .links{display:flex;gap:26px;align-items:center;font-size:12px;font-weight:800;text-transform:uppercase}
+.btn{padding:14px 18px;border:1px solid var(--line);background:var(--acid);font-weight:900;text-transform:uppercase;display:inline-block}
+.hero{padding:30px 20px 24px;background:white;border-bottom:1px solid var(--line)}
+.hero h1,.band h2{font-size:clamp(54px,8vw,122px);line-height:.86;letter-spacing:-.065em;margin:0;text-transform:uppercase;font-weight:1000}
+.hero h1 span,.band h2 span{color:var(--purple)}
+.grid{display:grid;grid-template-columns:2fr 1fr;border-bottom:1px solid var(--line)}
+.visual{min-height:500px;background:linear-gradient(135deg,#16002c,#7b2bd0 52%,#b985ff);position:relative;overflow:hidden;border-right:1px solid var(--line)}
+.visual:before{content:"</>";font-family:monospace;font-weight:1000;font-size:clamp(140px,23vw,360px);position:absolute;left:6%;top:8%;color:rgba(255,255,255,.12);transform:rotate(-7deg)}
+.visual:after{content:"OPEN SOURCE • EDUCAÇÃO • INCLUSÃO • COMUNIDADE •";position:absolute;bottom:24px;left:24px;color:white;font-weight:900;font-size:18px;letter-spacing:.06em}
+.copy{padding:28px;display:flex;flex-direction:column;justify-content:space-between;min-height:500px}
+.copy h2,.card h3{font-size:38px;line-height:.92;text-transform:uppercase;margin:0;font-weight:1000}
+.copy p,.card p{font-size:16px;line-height:1.45;max-width:42ch}
+.three{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.card{padding:22px;min-height:330px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}.card:last-child{border-right:0}
+.card .num{font-family:monospace;font-size:13px}.card.purple{background:var(--purple);color:white}
+.band{padding:24px 20px;background:white;border-bottom:1px solid var(--line)}
+.feature{display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--line)}
+.feature .left{padding:24px;border-right:1px solid var(--line)}
+.feature .left h3{font-size:34px;text-transform:uppercase;line-height:.95;margin:0 0 28px}
+.feature .right{min-height:510px;background:#0b0d10;color:white;position:relative;padding:32px;display:flex;align-items:end;overflow:hidden}
+.feature .right:before{content:"{ }";position:absolute;font:900 320px/1 monospace;right:3%;top:8%;color:#7b2bd0}
+.feature .right p{position:relative;z-index:1;max-width:560px;font-size:22px}
+.cta{text-align:center;padding:100px 20px;background:var(--violet);border-bottom:1px solid var(--line)}
+.cta small{font-weight:800}.cta h2{font-size:clamp(38px,5vw,76px);margin:16px 0 30px;text-transform:uppercase}
+footer{background:var(--ink);color:white;padding:46px 24px}.footlogo{display:flex;justify-content:space-between;align-items:flex-start}.footlogo img{max-width:360px;width:55%}
+.footgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-top:80px;font-size:13px}.footgrid strong{display:block;margin-bottom:12px;text-transform:uppercase}
+@media(max-width:800px){.links a:not(.btn){display:none}.grid,.feature{grid-template-columns:1fr}.visual{border-right:0;border-bottom:1px solid var(--line);min-height:380px}.three{grid-template-columns:1fr}.card{border-right:0;border-bottom:1px solid var(--line)}.feature .left{border-right:0;border-bottom:1px solid var(--line)}.footgrid{grid-template-columns:1fr}.hero h1,.band h2{letter-spacing:-.05em}}
+
+/* Camada humana — fotografias da comunidade */
+.human-hero{
+  background:
+    linear-gradient(0deg,rgba(20,0,38,.18),rgba(20,0,38,.08)),
+    url("assets/comunidade-grupo.jpg") center/cover no-repeat;
+}
+.human-hero:before{display:none}
+.human-hero:after{display:none}
+.photo-label{
+  position:absolute;left:24px;bottom:24px;background:var(--purple);color:white;
+  padding:11px 14px;font-size:14px;font-weight:900;letter-spacing:.05em;
+}
+.human-class{
+  background:
+    linear-gradient(0deg,rgba(7,8,10,.78),rgba(7,8,10,.05) 65%),
+    url("assets/comunidade-aula.jpg") center/cover no-repeat !important;
+}
+.human-class:before{display:none}
+.image-copy{
+  position:relative;z-index:2;max-width:650px;font-size:28px;line-height:1.15;
+  font-weight:800;text-transform:uppercase;
+}
+
+
+/* Interações e movimento — inspirados em padrões de plataformas educacionais,
+   mantendo a identidade própria da Cumbuca Dev */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:none}
+nav{transition:box-shadow .25s ease,background .25s ease}
+nav:hover{box-shadow:0 8px 0 rgba(123,43,208,.12)}
+.btn{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink);background:white}
+.card{position:relative;overflow:hidden;transition:transform .25s ease,background .25s ease}
+.card:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;left:calc(var(--mx,50%) - 90px);top:calc(var(--my,50%) - 90px);background:radial-gradient(circle,rgba(155,92,255,.17),transparent 70%);opacity:0;transition:opacity .2s;pointer-events:none}
+.card:hover{transform:translateY(-7px)}
+.card:hover:before{opacity:1}
+.human-hero{transition:background-size 1s ease;background-size:105% !important}
+.human-hero:hover{background-size:112% !important}
+.human-class{transition:background-size 1s ease;background-size:105% !important}
+.human-class:hover{background-size:112% !important}
+.tech-ticker{overflow:hidden;border-bottom:1px solid var(--line);background:var(--ink);color:white;padding:11px 0}
+.ticker-track{display:flex;width:max-content;gap:42px;animation:ticker 25s linear infinite;font:900 13px/1 Arial;text-transform:uppercase;letter-spacing:.08em}
+.ticker-track span:before{content:"[";color:var(--violet);margin-right:7px}.ticker-track span:after{content:"]";color:var(--violet);margin-left:7px}
+@keyframes ticker{to{transform:translateX(-50%)}}
+.band h2 span{display:inline-block;transition:transform .3s ease}.band:hover h2 span{transform:translateX(14px)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
